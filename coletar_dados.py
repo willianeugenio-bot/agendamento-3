@@ -31,8 +31,9 @@ def obter_horarios():
         # Dividimos em duas buscas para respeitar o limite de 7 dias do Calendly
         # Fatias: [Hoje até dia 7] e [Dia 7 até dia 10]
         intervalos = [
-            (agora_utc + timedelta(minutes=1), agora_utc + timedelta(days=7)),
-            (agora_utc + timedelta(days=7, minutes=1), agora_utc + timedelta(days=15))
+            (agora_utc + timedelta(minutes=1), agora_utc + timedelta(days=7)),         # Hoje até dia 7
+            (agora_utc + timedelta(days=7, minutes=1), agora_utc + timedelta(days=14)),  # Dia 7 até dia 14
+            (agora_utc + timedelta(days=14, minutes=1), agora_utc + timedelta(days=15))  # Dia 14 até dia 15
         ]
         
         for start_time, end_time in intervalos:
